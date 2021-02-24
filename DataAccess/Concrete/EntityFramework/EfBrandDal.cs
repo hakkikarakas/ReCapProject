@@ -1,19 +1,23 @@
-﻿using System;
+﻿using DataAccess.Abstract;
+using Entities.Concrete;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfBrandDal:IBrandDal
+    public class EfBrandDal : IBrandDal
     {
         public void Add(Brand entity)
         {
-            using (RentCarContext context = new RentCarContext())
+            using (RentCarContext context=new RentCarContext())
             {
-                var addedEntity = context.Entry(entity);
-                addedEntity.State = EntityState.Added;
+                var addEntity = context.Entry(entity);
+                addEntity.State = EntityState.Added;
                 context.SaveChanges();
-
             }
         }
 
@@ -24,7 +28,6 @@ namespace DataAccess.Concrete.EntityFramework
                 var deletedEntity = context.Entry(entity);
                 deletedEntity.State = EntityState.Deleted;
                 context.SaveChanges();
-
             }
         }
 
@@ -57,5 +60,4 @@ namespace DataAccess.Concrete.EntityFramework
             }
         }
     }
-}
 }
