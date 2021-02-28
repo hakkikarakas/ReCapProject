@@ -1,5 +1,5 @@
-﻿using Entities.Abstract;
-using System;
+﻿using System;
+using Core.Entities;
 using System.Collections.Generic;
 using System.Text;
 
