@@ -60,5 +60,10 @@ namespace Business.Concrete
         {
             _carDal.Update(car);
         }
+
+        List<Car> ICarService.GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
