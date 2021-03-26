@@ -23,7 +23,7 @@ namespace Console
             var result2 = user.GetAll();
             foreach (var item in result2.Data)
             {
-                System.Console.WriteLine(item.FirstName);
+                System.Console.WriteLine(item.FirstName+item.LastName);
             }
 
 
