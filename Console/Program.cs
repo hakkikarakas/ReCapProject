@@ -14,11 +14,17 @@ namespace Console
             ICarService carManager = new CarManager(new EfCarDal());
             IBrandService brandManager = new BrandManager(new EfBrandDal());
             IColorService colorManager = new ColorManager(new EfColorDal());
+            IUserService user = new UserManager(new EfUserDal());
             //CarTest(carManager);
             //BrandTest(brandManager);
             //ColorTest(colorManager);
-
-
+            Users user1 = new Users { FirstName="Hakkı",LastName="Karakaş",Email="hakki@",Password="12345"};
+            user.Add(user1);
+            var result2 = user.GetAll();
+            foreach (var item in result2.Data)
+            {
+                System.Console.WriteLine(item.FirstName);
+            }
 
 
             System.Console.WriteLine("------join işlemi sonucu gelen değerler----------");
